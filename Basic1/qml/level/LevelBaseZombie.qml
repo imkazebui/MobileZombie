@@ -3,15 +3,11 @@ import VPlay 2.0
 Item {
     id: main
     property int totalInteval: 0
+    property int  i: 0
     property int soCon: 0
     property int soConDaTha: 0
     property int interval: 700
 
-    function win(){
-        delay(totalInteval, function(){
-            win.start()
-        })
-    }
     function changeInterval(intv){
         interval = intv
     }
@@ -56,13 +52,19 @@ Item {
             taoZombie(startPoint, type)
         })
     }
-    function tha6Zombie(startPoint, type){
-        thaZombie(startPoint, type)
-        thaZombie(startPoint, type)
-        thaZombie(startPoint, type)
-        thaZombie(startPoint, type)
-        thaZombie(startPoint, type)
-        thaZombie(startPoint, type)
+    function tha6Zombie(type){
+        thaZombie(randomX(), type)
+        thaZombie(randomX(), type)
+        thaZombie(randomX(), type)
+        thaZombie(randomX(), type)
+        thaZombie(randomX(), type)
+        thaZombie(randomX(), type)
+    }
+    function thaXZombie(n, type){
+        for (i; i < n; i++){
+            thaZombie(randomX(), type)
+        }
+        i = 0
     }
     function thaZigZag(type){
         thaZombie(30, type)
@@ -76,6 +78,9 @@ Item {
         thaZombie(110, type)
         thaZombie(70, type)
         thaZombie(30, type)
+    }
+    function randomX(){
+        return utils.generateRandomValueBetween(15,230);
     }
 
     Timer{
@@ -98,17 +103,20 @@ Item {
     }
     Timer{
         property int total: 0
+        //15000ms, chay tu tu
         id:changeProcess
         interval: 500
         repeat:true
         running: true
         onTriggered: {
-            changeProcess.interval = totalInteval/20
-            total+=changeProcess.interval
-            if(total>=totalInteval)
+            total+=500
+            if(total>=15000)
                 running = false
-            processBar.process = (100*total)/totalInteval
+            processBar.process+=(100/30)
         }
+    }
+    onTotalIntevalChanged: {
+        console.log("total:"+totalInteval)
     }
 }
 

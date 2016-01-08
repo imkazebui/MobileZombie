@@ -8,14 +8,24 @@ LevelBaseZombie {
 
     Component.onCompleted:{
         thaZombie(0, 0) //INIT
+        thaZombie(30, 1)
+        sleep(2000)
+        thaZombie(130, 1)
+        sleep(2000)
+        thaZombie(50, 1)
+        sleep(2000)
+        thaZombie(230, 1)
+        sleep(2000)
+        changeInterval(500)
+        thaZombie(30, 2)
+        thaZombie(130, 2)
+        thaZombie(50, 2)
+        thaZombie(230, 2)
+        thaZombie(30, 2)
+        thaZombie(130, 2)
+        thaZombie(50, 2)
 
-        thaZombie(30,1)
-        thaZombie(60,1)
-        thaZombie(30,1)
-        thaZombie(60,1)
-        thaZombie(30,1)
-        thaZombie(60,1)
-        win()
+
     }
 
 }
