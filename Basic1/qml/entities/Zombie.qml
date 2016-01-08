@@ -248,6 +248,7 @@ EntityBase {
                 died=true
                 gameScene.score++
                 gameScene.combo++
+                zb_Die.play()
             }
             path.running = false
             console.log((mouseX+this.x)+","+(this.y+mouseY))
@@ -256,6 +257,10 @@ EntityBase {
             hideAnimation.start()
 
         }
+    }
+    SoundEffectVPlay {
+      id: zb_Die
+      source: "../../assets/sound/zb-die.wav"
     }
 
 }

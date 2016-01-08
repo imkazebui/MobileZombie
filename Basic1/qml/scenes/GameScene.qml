@@ -25,6 +25,16 @@ SceneBase{
         debugDrawVisible: false
         gravity.y: 0
     }
+    BackgroundMusic {
+      id: sound_background
+      source: "../../assets/sound/sound-background.mp3"
+    }
+
+    BackgroundMusic {
+      id: sound_lv1
+      source: "../../assets/sound/sound-background.mp3"
+      autoPlay: false
+    }
     Text {
       // set font
       font.family: gameFont.name
@@ -76,9 +86,10 @@ SceneBase{
     Loader{
         id: itemLoader
         active: false
-        source: "../level/Level1.qml"
+        source: "../level/Level3.qml"
         onLoaded: {
-
+            sound_background.stop()
+            sound_lv1.play()
         }
     }
     function resetGame(){

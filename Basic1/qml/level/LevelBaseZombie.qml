@@ -51,6 +51,7 @@ Item {
         delay(totalInteval, function(){
             taoZombie(startPoint, type)
         })
+        zb_ef_1.play();
     }
     function tha6Zombie(type){
         thaZombie(randomX(), type)
@@ -64,6 +65,7 @@ Item {
         for (i; i < n; i++){
             thaZombie(randomX(), type)
         }
+        zb_ef_1.play();
         i = 0
     }
     function thaZigZag(type){
@@ -81,6 +83,11 @@ Item {
     }
     function randomX(){
         return utils.generateRandomValueBetween(15,230);
+    }
+
+    SoundEffectVPlay {
+      id: zb_ef_1
+      source: "../../assets/sound/zb-eff-1.wav"
     }
 
     Timer{
